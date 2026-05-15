@@ -1,8 +1,3 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
-# ... your other imports go here (import os, fastapi, chromadb, etc.)
 import os
 import json
 from fastapi import FastAPI, HTTPException

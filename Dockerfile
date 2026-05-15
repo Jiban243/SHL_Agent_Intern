@@ -1,15 +1,20 @@
-# Use an official Python runtime with modern SQLite built-in!
+# Use an official Python runtime
 FROM python:3.11-slim
 
 # Set the working directory
 WORKDIR /code
 
-# Copy requirements and install them
+# Copy requirements
 COPY ./requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+# Force-install all required libraries
+RUN pip install --no-cache-dir --upgrade fastapi uvicorn chromadb sentence-transformers groq pydantic python-dotenv -r /code/requirements.txt
 
 # Copy the rest of your app code and database
 COPY . /code
 
-# Hugging Face Spaces requires apps to run on port 7860
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
+# THE FIX: Tell the server to build its database from a.json right now!
+RUN python ingest.py
+
+# Boot the server safely
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
