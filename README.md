@@ -3,8 +3,8 @@
 A full-stack, RAG-powered Conversational AI application. This project bridges the gap between vague hiring requirements (e.g., "I need a mid-level Java developer test") and concrete SHL assessment recommendations using advanced natural language processing.
 
 ## 🌐 Live Demos
-* **Live Chat UI (Frontend):** [Insert your Streamlit Cloud URL here - if deployed]
-* **Live API Endpoint (Backend):** [https://jibank-shl-agent-intern.hf.space](https://jibank-shl-agent-intern.hf.space)
+* **Live Chat UI (Frontend):** https://shl-agent-jibank.streamlit.app
+* **Live API Endpoint (Backend):** https://jibank-shl-agent-intern.hf.space
 *(Interactive Swagger Documentation is available by appending `/docs` to the backend URL.)*
 
 ## ✨ Key Features
